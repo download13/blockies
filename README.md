@@ -24,3 +24,7 @@ Notes
 The defaults of size 10 and scale 5 generate 50x50 pixel icons. Below are some standard sizes that work well.
  * 24x24 `{size: 8, scale: 3}`
  * 48x48 `{size: 12, scale: 4}`
+
+License
+-------
+[WTFPL](http://www.wtfpl.net/)
