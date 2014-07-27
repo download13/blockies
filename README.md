@@ -35,7 +35,7 @@ Build
 -----
 
     node build
-All this does is use the minify `blockies.js` to `blockies.min.js`.
+All this does is minify `blockies.js` to `blockies.min.js`.
 
 
 License
