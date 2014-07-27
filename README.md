@@ -5,7 +5,10 @@ A tiny library for generating blocky identicons.
 
 ![Sample blockies image](sample.png "Blockies")
 
-Use:
+
+Use
+---
+
 ```javascript
 var icon = blockies.create({ // All options are optional
     seed: 'randstring', // seed used to generate icon data, default: random
@@ -19,12 +22,23 @@ document.body.appendChild(icon); // icon is a canvas element
 
 In the above example the icon will be 15x15 blocks, and each block will be 3x3 pixels. The icon canvas will be 45x45 pixels.
 
+
 Notes
 -----
+
 The defaults of size 10 and scale 5 generate 50x50 pixel icons. Below are some standard sizes that work well.
  * 24x24 `{size: 8, scale: 3}`
  * 48x48 `{size: 12, scale: 4}`
 
+
+Build
+-----
+
+    node build
+All this does is use the minify `blockies.js` to `blockies.min.js`.
+
+
 License
 -------
+
 [WTFPL](http://www.wtfpl.net/)
