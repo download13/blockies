@@ -1,0 +1,24 @@
+{
+  "name": "blockies",
+  "main": "blockies.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/download13/blockies",
+  "authors": [
+    "Erin Dachtler <download333@gmail.com>"
+  ],
+  "description": "<1k library that generates blocky identicons",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "identicon",
+    "blocky"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "README.md",
+    "sample.png",
+    "build.js"
+  ]
+}
