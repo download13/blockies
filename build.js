@@ -26,7 +26,7 @@ function compress(code, cb) {
 	var params = {
 		output_format: 'json',
 		output_info: 'compiled_code',
-		compilation_level: 'ADVANCED_OPTIMIZATIONS',
+		compilation_level: 'SIMPLE_OPTIMIZATIONS',
 		warning_level: 'verbose',
 		output_file_name: 'default.js',
 		js_code: code

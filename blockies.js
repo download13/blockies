@@ -86,5 +86,5 @@
 		return canvas;
 	}
 
-	window['blockies'] = {create: createIcon};
+	window.blockies = {create: createIcon};
 })();
