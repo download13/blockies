@@ -4,7 +4,7 @@
 	function seedrand(s) {
 		randseed = 0;
 		for(var i = 0; i < s.length; i += 2) {
-			var h = (s.charCodeAt(i + 2) << 8) | s.charCodeAt(i + 3);
+			var h = (s.charCodeAt(i) << 8) | s.charCodeAt(i + 1);
 			randseed ^= h;
 		}
 	}
@@ -49,13 +49,13 @@
 		return data;
 	}
 
-	function createCanvas(imageData, color, scale) {
+	function createCanvas(imageData, color, scale, bgcolor) {
 		var c = document.createElement('canvas');
 		var width = Math.sqrt(imageData.length);
 		c.width = c.height = width * scale;
 
 		var cc = c.getContext('2d');
-		cc.fillStyle = '#fff';
+		cc.fillStyle = bgcolor;
 		cc.fillRect(0, 0, c.width, c.height);
 		cc.fillStyle = color;
 
@@ -76,15 +76,16 @@
 		var size = opts.size || 10;
 		var scale = opts.scale || 5;
 		var seed = opts.seed || Math.random().toString(36).substr(2);
+		var bgcolor = opts.bgcolor || '#fff';
 
 		seedrand(seed);
 
 		var color = opts.color || createColor();
 		var imageData = createImageData(size);
-		var canvas = createCanvas(imageData, color, scale);
+		var canvas = createCanvas(imageData, color, scale, bgcolor);
 
 		return canvas;
 	}
 
-	window['blockies'] = {create: createIcon};
+	window.blockies = {create: createIcon};
 })();
