@@ -4,7 +4,7 @@
 	function seedrand(s) {
 		randseed = 0;
 		for(var i = 0; i < s.length; i += 2) {
-			var h = (s.charCodeAt(i + 2) << 8) | s.charCodeAt(i + 3);
+			var h = (s.charCodeAt(i) << 8) | s.charCodeAt(i + 1);
 			randseed ^= h;
 		}
 	}
