@@ -35,7 +35,7 @@
 		for(var y = 0; y < height; y++) {
 			var row = [];
 			for(var x = 0; x < dataWidth; x++) {
-				row[x] = rand() >= 0.5;
+				row[x] = Math.floor(Math.random()*2.2);
 			}
 			var r = row.slice(0, mirrorWidth);
 			r.reverse();
@@ -49,7 +49,7 @@
 		return data;
 	}
 
-	function createCanvas(imageData, color, scale, bgcolor) {
+	function createCanvas(imageData, color, scale, bgcolor, spotcolor) {
 		var c = document.createElement('canvas');
 		var width = Math.sqrt(imageData.length);
 		c.width = c.height = width * scale;
@@ -62,6 +62,7 @@
 		for(var i = 0; i < imageData.length; i++) {
 			var row = Math.floor(i / width);
 			var col = i % width;
+			cc.fillStyle = (imageData[i] == 1) ? color : spotcolor;
 
 			if(imageData[i]) {
 				cc.fillRect(col * scale, row * scale, scale, scale);
@@ -76,13 +77,14 @@
 		var size = opts.size || 10;
 		var scale = opts.scale || 5;
 		var seed = opts.seed || Math.random().toString(36).substr(2);
-		var bgcolor = opts.bgcolor || '#fff';
+		var bgcolor = opts.bgcolor || createColor();
 
 		seedrand(seed);
 
 		var color = opts.color || createColor();
+		var spotcolor = createColor();
 		var imageData = createImageData(size);
-		var canvas = createCanvas(imageData, color, scale, bgcolor);
+		var canvas = createCanvas(imageData, color, scale, bgcolor, spotcolor);
 
 		return canvas;
 	}
