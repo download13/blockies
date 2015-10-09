@@ -17,8 +17,8 @@
 
 	function createColor() {
 		var h = Math.floor(rand() * 360);
-		var s = ((rand() * 50) + 50) + '%';
-		var l = ((rand() * 60) + 20) + '%';
+		var s = ((rand() * 60) + 40) + '%';
+		var l = ((rand()+rand()+rand()+rand()) * 25) + '%';
 
 		var color = 'hsl(' + h + ',' + s + ',' + l + ')';
 		return color;
@@ -35,7 +35,7 @@
 		for(var y = 0; y < height; y++) {
 			var row = [];
 			for(var x = 0; x < dataWidth; x++) {
-				row[x] = Math.floor(Math.random()*2.2);
+				row[x] = Math.floor(rand()*2.3);
 			}
 			var r = row.slice(0, mirrorWidth);
 			r.reverse();
@@ -77,12 +77,12 @@
 		var size = opts.size || 10;
 		var scale = opts.scale || 5;
 		var seed = opts.seed || Math.random().toString(36).substr(2);
-		var bgcolor = opts.bgcolor || createColor();
 
 		seedrand(seed);
 
 		var color = opts.color || createColor();
 		var spotcolor = createColor();
+		var bgcolor = opts.bgcolor || createColor();
 		var imageData = createImageData(size);
 		var canvas = createCanvas(imageData, color, scale, bgcolor, spotcolor);
 
