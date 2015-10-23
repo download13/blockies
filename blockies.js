@@ -1,18 +1,25 @@
 (function() {
-	// The output is pretty uniform, so it's probably fine
-	var randseed = 0;
-	function seedrand(s) {
-		randseed = 0;
-		for(var i = 0; i < s.length; i += 2) {
-			var h = (s.charCodeAt(i) << 8) | s.charCodeAt(i + 1);
-			randseed ^= h;
+	// The random number is a js implementation of the Xorshift PRNG
+	var randseed = new Array(4); // Xorshift: [x, y, z, w] 32 bit values
+
+	function seedrand(seed) {
+		for (var i = 0; i < randseed.length; i++) {
+			randseed[i] = 0;
+		}
+		for (var i = 0; i < seed.length; i++) {
+			randseed[i%4] = ((randseed[i%4] << 5) - randseed[i%4]) + seed.charCodeAt(i);
 		}
 	}
+
 	function rand() {
-		var n = (Math.sin(randseed++) + 1) / 2; // Move range from -1 - 1 to 0 - 1
-		var r = n * 10000; // Remove first few digits since they tend to have low entropy
-		n = r - Math.floor(r);
-		return n;
+		var t = randseed[0] ^ (randseed[0] << 11);
+
+		randseed[0] = randseed[1];
+		randseed[1] = randseed[2];
+		randseed[2] = randseed[3];
+		randseed[3] = (randseed[3] ^ (randseed[3] >> 19) ^ t ^ (t >> 8));
+
+		return (randseed[3]>>>0) / ((1 << 31)>>>0);
 	}
 
 	function createColor() {
