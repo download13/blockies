@@ -16,7 +16,7 @@ var icon = blockies.create({ // All options are optional
     color: '#dfe', // to manually specify the icon color, default: random
     bgcolor: '#aaa', // choose a different background color, default: random
     size: 15, // width/height of the icon in blocks, default: 8
-    scale: 3, // width/height of each block in pixels, default: 5
+    scale: 3, // width/height of each block in pixels, default: 4
     spotcolor: '#000' // each pixel has a 13% chance of being of a third color, 
     // default: random. Set to -1 to disable it. These "spots" create structures
     // that look like eyes, mouths and noses. 
@@ -31,9 +31,10 @@ In the above example the icon will be 15x15 blocks, and each block will be 3x3 p
 Notes
 -----
 
-The defaults of size 10 and scale 5 generate 50x50 pixel icons. Below are some standard sizes that work well.
+The defaults of size 8 and scale 4 generate 32x32 pixel icons. Below are some standard sizes that work well. A size larger than 10 will start generating more noisy icons that don't ressemble much.
+
  * 24x24 `{size: 8, scale: 3}`
- * 48x48 `{size: 12, scale: 4}`
+ * 50x50 `{size: 5, scale: 10}`
 
 
 Build

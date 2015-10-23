@@ -82,7 +82,7 @@
 	function createIcon(opts) {
 		opts = opts || {};
 		var size = opts.size || 8;
-		var scale = opts.scale || 5;
+		var scale = opts.scale || 4;
 		var seed = opts.seed || Math.floor((Math.random()*Math.pow(10,16))).toString(16);
 
 		seedrand(seed);
