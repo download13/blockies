@@ -12,6 +12,7 @@
 	}
 
 	function rand() {
+		// based on Java's String.hashCode(), expanded to 4 32bit values
 		var t = randseed[0] ^ (randseed[0] << 11);
 
 		randseed[0] = randseed[1];
