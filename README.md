@@ -19,7 +19,7 @@ var icon = blockies.create({ // All options are optional
     scale: 3, // width/height of each block in pixels, default: 5
     spotcolor: '#000' // each pixel has a 13% chance of being of a third color, 
     // default: random. Set to -1 to disable it. These "spots" create structures
-    // that look like eyes and mouths will pop up. 
+    // that look like eyes, mouths and noses. 
 });
 
 document.body.appendChild(icon); // icon is a canvas element
