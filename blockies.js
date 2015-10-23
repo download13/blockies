@@ -81,15 +81,15 @@
 
 	function createIcon(opts) {
 		opts = opts || {};
-		var size = opts.size || 10;
+		var size = opts.size || 8;
 		var scale = opts.scale || 5;
-		var seed = opts.seed || Math.random().toString(36).substr(2);
+		var seed = opts.seed || Math.floor((Math.random()*Math.pow(10,16))).toString(16);
 
 		seedrand(seed);
 
 		var color = opts.color || createColor();
-		var spotcolor = createColor();
 		var bgcolor = opts.bgcolor || createColor();
+		var spotcolor = opts.spotcolor || createColor();
 		var imageData = createImageData(size);
 		var canvas = createCanvas(imageData, color, scale, bgcolor, spotcolor);
 
