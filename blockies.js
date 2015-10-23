@@ -23,8 +23,11 @@
 	}
 
 	function createColor() {
+		//saturation is the whole color spectrum
 		var h = Math.floor(rand() * 360);
+		//saturation goes from 40 to 100, it avoids greyish colors
 		var s = ((rand() * 60) + 40) + '%';
+		//lightness can be anything from 0 to 100, but probabilities are a bell curve around 50%
 		var l = ((rand()+rand()+rand()+rand()) * 25) + '%';
 
 		var color = 'hsl(' + h + ',' + s + ',' + l + ')';
@@ -42,6 +45,8 @@
 		for(var y = 0; y < height; y++) {
 			var row = [];
 			for(var x = 0; x < dataWidth; x++) {
+				// this makes foreground and background color to have a 43% (1/2.3) probability
+				// spot color has 13% chance
 				row[x] = Math.floor(rand()*2.3);
 			}
 			var r = row.slice(0, mirrorWidth);
@@ -69,8 +74,10 @@
 		for(var i = 0; i < imageData.length; i++) {
 			var row = Math.floor(i / width);
 			var col = i % width;
+			// if data is 2, choose spot color, if 1 choose foreground
 			cc.fillStyle = (imageData[i] == 1) ? color : spotcolor;
 
+			// if data is 0, leave the background
 			if(imageData[i]) {
 				cc.fillRect(col * scale, row * scale, scale, scale);
 			}
