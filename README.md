@@ -33,6 +33,12 @@ The defaults of size 10 and scale 5 generate 50x50 pixel icons. Below are some s
  * 48x48 `{size: 12, scale: 4}`
 
 
+Alternative Styles
+------------------
+
+ * https://github.com/alexvandesande/blockies - More colors and alien faces
+
+
 Build
 -----
 
