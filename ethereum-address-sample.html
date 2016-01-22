@@ -17,8 +17,9 @@
     <script src="blockies.js"></script>
     <script>
 
-        var addr = document.getElementById('icon');
-        addr.style.backgroundImage = 'url(' + blockies.create({ seed:'0xdbf03b407c01e7cd3cbea99509d93f8dddc8c6fb' ,size: 8,scale: 16}).toDataURL()+')'
+        var address = '0xdbf03b407c01e7cd3cbea99509d93f8dddc8c6fb';
+        var icon = document.getElementById('icon');
+        icon.style.backgroundImage = 'url(' + blockies.create({ seed:address ,size: 8,scale: 16}).toDataURL()+')'
 
     </script>
 </body>
