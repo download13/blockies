@@ -1,0 +1,30 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<style>
+
+
+#icon {
+    width: 64px;
+    height: 64px;
+    background-color: #ccc;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    box-shadow: inset rgba(255, 255, 255, 0.5) 0 2px 2px, inset rgba(0, 0, 0, 0.6) 0 -1px 8px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="icon"></div>
+<script src="blockies.js"></script>
+<script>
+var addr = document.getElementById('icon');
+addr.style.backgroundImage = 'url(' + blockies.create({ seed:'0xe11e49f8146630632945075289b71edbbbbed2eb' ,size: 8,scale: 16}).toDataURL()+')'
+</script>
+
+</body>
+
