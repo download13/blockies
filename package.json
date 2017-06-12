@@ -1,0 +1,19 @@
+{
+  "name": "blockies-identicon",
+  "version": "0.1.0",
+  "description": "Blockies ========",
+  "main": "blockies.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexvandesande/blockies.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexvandesande/blockies/issues"
+  },
+  "homepage": "https://github.com/alexvandesande/blockies#readme"
+}
