@@ -73,13 +73,14 @@
 		cc.fillStyle = color;
 
 		for(var i = 0; i < imageData.length; i++) {
-			var row = Math.floor(i / width);
-			var col = i % width;
-			// if data is 2, choose spot color, if 1 choose foreground
-			cc.fillStyle = (imageData[i] == 1) ? color : spotcolor;
-
 			// if data is 0, leave the background
 			if(imageData[i]) {
+				var row = Math.floor(i / width);
+				var col = i % width;
+
+				// if data is 2, choose spot color, if 1 choose foreground
+				cc.fillStyle = (imageData[i] == 1) ? color : spotcolor;
+
 				cc.fillRect(col * scale, row * scale, scale, scale);
 			}
 		}
