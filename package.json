@@ -1,7 +1,7 @@
 {
   "name": "blockies-identicon",
   "version": "0.1.0",
-  "description": "Blockies ========",
+  "description": "A tiny library for generating blocky identicons.",
   "main": "blockies.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/alexvandesande/blockies.git"
   },
-  "author": "",
+  "author": "Erin Dachtler, Alex Van de Sande",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexvandesande/blockies/issues"
