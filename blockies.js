@@ -65,14 +65,15 @@
 	function buildOpts(opts) {
 		var newOpts = {};
 
+		newOpts.seed = opts.seed || Math.floor((Math.random()*Math.pow(10,16))).toString(16);
+
+		seedrand(newOpts.seed);
+
 		newOpts.size = opts.size || 8;
 		newOpts.scale = opts.scale || 4;
-		newOpts.seed = opts.seed || Math.floor((Math.random()*Math.pow(10,16))).toString(16);
 		newOpts.color = opts.color || createColor();
 		newOpts.bgcolor = opts.bgcolor || createColor();
 		newOpts.spotcolor = opts.spotcolor || createColor();
-
-		seedrand(newOpts.seed);
 
 		return newOpts;
 	}
