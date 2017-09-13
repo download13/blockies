@@ -79,8 +79,6 @@
 	}
 
 	function renderIcon(opts, canvas) {
-		var opts = buildOpts(opts || {});
-
 		var imageData = createImageData(opts.size);
 		var width = Math.sqrt(imageData.length);
 
