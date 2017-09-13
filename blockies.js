@@ -62,23 +62,24 @@
 		return data;
 	}
 
-  function buildOpts(opts) {
-    var newOpts = {};
+	function buildOpts(opts) {
+		var newOpts = {};
+
+		newOpts.seed = opts.seed || Math.floor((Math.random()*Math.pow(10,16))).toString(16);
+
+		seedrand(newOpts.seed);
 
 		newOpts.size = opts.size || 8;
 		newOpts.scale = opts.scale || 4;
-		newOpts.seed = opts.seed || Math.floor((Math.random()*Math.pow(10,16))).toString(16);
 		newOpts.color = opts.color || createColor();
 		newOpts.bgcolor = opts.bgcolor || createColor();
 		newOpts.spotcolor = opts.spotcolor || createColor();
 
-		seedrand(newOpts.seed);
+		return newOpts;
+	}
 
-    return newOpts;
-  }
-
-  function renderIcon(opts, canvas) {
-    var opts = buildOpts(opts || {});
+	function renderIcon(opts, canvas) {
+		var opts = buildOpts(opts || {});
 
 		var imageData = createImageData(opts.size);
 		var width = Math.sqrt(imageData.length);
@@ -98,33 +99,33 @@
 				var col = i % width;
 
 				// if data is 2, choose spot color, if 1 choose foreground
-			  cc.fillStyle = (imageData[i] == 1) ? opts.color : opts.spotcolor;
+				cc.fillStyle = (imageData[i] == 1) ? opts.color : opts.spotcolor;
 
 				cc.fillRect(col * opts.scale, row * opts.scale, opts.scale, opts.scale);
 			}
 		}
-    return canvas;
-  }
+		return canvas;
+	}
 
 	function createIcon(opts) {
-    var opts = buildOpts(opts || {});
+		var opts = buildOpts(opts || {});
 		var canvas = document.createElement('canvas');
 
-    renderIcon(opts, canvas);
+		renderIcon(opts, canvas);
 
 		return canvas;
 	}
 
 	var api = {
-    create: createIcon,
-    render: renderIcon
-  };
+		create: createIcon,
+		render: renderIcon
+	};
 
-  if (typeof module !== "undefined") {
-    module.exports = api;
-  }
-  if (typeof window !== "undefined") {
-    window.blockies = api;
-  }
+	if (typeof module !== "undefined") {
+		module.exports = api;
+	}
+	if (typeof window !== "undefined") {
+		 window.blockies = api;
+	}
 
 })();
