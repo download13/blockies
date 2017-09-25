@@ -19,5 +19,11 @@ for(var i = 0; i < 250; i++) {
     var icon = blockies.create(opt);
     document.body.appendChild(icon);
 }
+
+var loaded = function( img ) {
+  document.body.appendChild( hqx(img, 2) );
+  document.body.appendChild( hqx(img, 3) );
+  document.body.appendChild( hqx(img, 4) );
+};
 </script>
 </body>

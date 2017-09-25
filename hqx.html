@@ -1,0 +1,87 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<style>
+canvas, img {
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%/60% 60% 40% 40%;
+    /*box-shadow: inset rgba(255, 255, 255, 0.6) 0 2px 2px, inset rgba(0, 0, 0, 0.3) 0 -2px 6px;*/
+    margin: 6px;
+}
+
+canvas {
+  margin-left: -70px;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+canvas:hover {
+  opacity: 0;
+}
+
+.shadow {
+  width: 64px;
+  height: 64px;
+  margin-left: -70px;
+  border-radius: 50%/60% 60% 40% 40%;
+  background: linear-gradient(white, black);
+}
+.icon {
+  float:left;
+  position:relative;
+}
+
+.icon:after {
+  content: " ";
+  background: url('egg-shadow.png') center no-repeat;
+  width: 64px;
+  height: 64px;
+  display: block ;
+  position: absolute ;
+  top: 6px;
+  left: 6px;
+  mix-blend-mode: overlay;
+}
+</style>
+</head>
+<body onload="loaded()">
+    <script src="blockies.js"></script>
+    <script type="text/javascript" src="hqx.js"></script>
+
+    <script>
+
+
+        var loaded = function( img ) {
+          var addresses = ['0xcC6294200Fa6e6EB5C3034eD6b0b80401F5B0CEB'];
+
+          for (i = 0; i < 128; i ++ ){
+            addresses.push(Math.floor(Math.random() * Math.pow(10,10)).toString(16) + Math.floor(Math.random() * Math.pow(10,10)).toString(16) + Math.floor(Math.random() * Math.pow(10,10)).toString(16) + Math.floor(Math.random() * Math.pow(10,10)).toString(16));
+          }
+
+          for (i = 0; i < addresses.length; i ++ ){
+            var seed = addresses[i];
+
+            var source = blockies.create({ seed:seed ,size: 8,scale: 1});
+
+            var icon = document.createElement("div");
+            icon.className = "icon";
+
+            var image = document.createElement("img");
+            image.src = blockies.create({ seed:seed ,size: 8,scale: 16}).toDataURL();
+            icon.appendChild( image );
+
+            var child = hqx(hqx(source, 4), 4);
+
+            icon.appendChild( child );
+            // var shadow = document.createElement('div');
+            document.body.appendChild(icon)
+          }
+
+        };
+    </script>
+
+
+</body>
