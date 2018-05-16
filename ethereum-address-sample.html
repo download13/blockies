@@ -2,24 +2,44 @@
 <head>
 <meta charset="utf-8">
 <style>
-#icon {
-    width: 64px;
-    height: 64px;
+.identicon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: 16px;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 50%;
     box-shadow: inset rgba(255, 255, 255, 0.6) 0 2px 2px, inset rgba(0, 0, 0, 0.3) 0 -2px 6px;
+    transition: border-radius 2.5s;
+    transition-delay: 3s;
+  }
+
+.identicon:hover {
+    border-radius: 6.25%;
+    transition-delay: 1s;
 }
 </style>
 </head>
 <body>
-    <div id="icon"></div>
+  <div id="squareIcon" class="identicon"></div>
+  <div id="roundIcon" class="identicon"></div>
+    <!-- Main blockies -->
+
     <script src="blockies.js"></script>
+
+    <!-- optional if you want rounded icons -->
+    <script type="text/javascript" src="hqx.js"></script>
+
     <script>
 
         var address = '0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359';
-        var icon = document.getElementById('icon');
-        icon.style.backgroundImage = 'url(' + blockies.create({ seed:address ,size: 8,scale: 16}).toDataURL()+')'
+        var squareIcon = document.getElementById('squareIcon');
+        squareIcon.style.backgroundImage = 'url(' + blockies.create({ seed:address ,size: 8,scale: 16}).toDataURL()+')'
+
+        // If you want rounded and diagonals
+        var roundIcon = document.getElementById('roundIcon');
+        roundIcon.style.backgroundImage = 'url(' + hqx(blockies.create({ seed:address ,size: 8,scale: 1}),4).toDataURL()+')'
 
     </script>
 </body>
