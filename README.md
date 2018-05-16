@@ -1,7 +1,7 @@
 Blockies
 ========
 
-A tiny library for generating blocky identicons.
+A tiny library for generating identicons for Ethereum addresses. These are not meant to replace user profiles, but as security icons, to allow the user to more easily check if an address he wants to interact with is the correct one. The symmetrical aspect of the icons allow our brain see [faces or objects](https://en.wikipedia.org/wiki/Pareidolia), making the icon more recognizable. This also contains the HQX library, for optionally creating not-so-blocky icons (see sample below).
 
 ![Sample blockies image](sample.png "Blockies")
 
@@ -17,9 +17,9 @@ var icon = blockies.create({ // All options are optional
     bgcolor: '#aaa', // choose a different background color, default: random
     size: 15, // width/height of the icon in blocks, default: 8
     scale: 3, // width/height of each block in pixels, default: 4
-    spotcolor: '#000' // each pixel has a 13% chance of being of a third color, 
+    spotcolor: '#000' // each pixel has a 13% chance of being of a third color,
     // default: random. Set to -1 to disable it. These "spots" create structures
-    // that look like eyes, mouths and noses. 
+    // that look like eyes, mouths and noses.
 });
 
 document.body.appendChild(icon); // icon is a canvas element
