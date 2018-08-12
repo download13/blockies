@@ -1,19 +1,29 @@
 {
-  "name": "ethereum-blockies",
-  "version": "0.1.1",
+  "name": "blockies",
+  "version": "1.0.0",
   "description": "A tiny library for generating blocky identicons.",
-  "main": "blockies.js",
+  "main": "src/blockies.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "minify src/blockies.mjs -o dist/blockies.min.mjs",
+    "serve-examples": "node --experimental-modules examples/server.mjs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexvandesande/blockies.git"
+    "url": "git+https://github.com/download13/blockies.git"
   },
   "author": "Erin Dachtler, Alex Van de Sande",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alexvandesande/blockies/issues"
+    "url": "https://github.com/download13/blockies/issues"
   },
-  "homepage": "https://github.com/alexvandesande/blockies#readme"
+  "homepage": "https://github.com/download13/blockies#readme",
+  "devDependencies": {
+    "babel-minify": "^0.4.3",
+    "koa": "^2.5.2",
+    "koa-static": "^5.0.0"
+  },
+  "files": [
+    "src/",
+    "dist/"
+  ]
 }
