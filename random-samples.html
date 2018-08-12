@@ -1,0 +1,77 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #f1f1f1;
+}
+canvas, img {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20% ;
+}
+
+canvas {
+  opacity: 1;
+  transition: opacity 1s, filter 1.5s;
+}
+
+.icon:hover canvas, canvas:hover, img:hover {
+  opacity: 0;
+  transition: opacity 0.5s, filter 0.25s;
+  filter: blur(1px);
+}
+
+
+.icon {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+}
+
+</style>
+</head>
+<body onload="loaded()">
+    <script src="blockies.js"></script>
+    <script type="text/javascript" src="hqx.js"></script>
+
+    <script>
+
+
+        var loaded = function( img ) {
+          var addresses =
+          ['0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359', '0x554f8e6938004575bd89cbef417aea5c18140d92', '0xcc6294200fa6e6eb5c3034ed6b0b80401f5b0ceb', '0xbb9bc244d798123fde783fcc1c72d3bb8c189413', '0x6090a6e47849629b7245dfa1ca21d94cd15878ef', '0x314159265dd8dbb310642f98f50c066173c1259b']
+
+          for (i = 0; i < 128; i ++ ){
+            addresses.push(Math.floor(Math.random() * Math.pow(10,10)).toString(16) + Math.floor(Math.random() * Math.pow(10,10)).toString(16) + Math.floor(Math.random() * Math.pow(10,10)).toString(16) + Math.floor(Math.random() * Math.pow(10,10)).toString(16));
+          }
+
+          for (i = 0; i < addresses.length; i ++ ){
+            var seed = addresses[i].toLowerCase();
+
+            var source = blockies.create({ seed:seed ,size: 8,scale: 1});
+
+            var icon = document.createElement("div");
+            icon.className = "icon";
+
+            var image = document.createElement("img");
+            image.src = blockies.create({ seed:seed ,size: 8,scale: 16}).toDataURL();
+            icon.appendChild( image );
+
+            var child = hqx(hqx(source, 4), 4);
+
+            icon.appendChild( child );
+            // var shadow = document.createElement('div');
+            document.body.appendChild(icon)
+          }
+
+        };
+    </script>
+
+</body>

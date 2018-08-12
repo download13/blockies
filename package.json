@@ -1,0 +1,19 @@
+{
+  "name": "ethereum-blockies",
+  "version": "0.1.1",
+  "description": "A tiny library for generating blocky identicons.",
+  "main": "blockies.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexvandesande/blockies.git"
+  },
+  "author": "Erin Dachtler, Alex Van de Sande",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexvandesande/blockies/issues"
+  },
+  "homepage": "https://github.com/alexvandesande/blockies#readme"
+}
