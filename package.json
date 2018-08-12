@@ -1,6 +1,6 @@
 {
-  "name": "blockies",
-  "version": "1.0.0",
+  "name": "@download/blockies",
+  "version": "1.0.1",
   "description": "A tiny library for generating blocky identicons.",
   "main": "src/blockies.mjs",
   "scripts": {

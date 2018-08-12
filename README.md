@@ -11,7 +11,7 @@ Browser
 ---
 
 ```javascript
-import { createIcon } from './blockies.mjs';
+import { createIcon } from '@download/blockies';
 
 var icon = createIcon({ // All options are optional
     seed: 'randstring', // seed used to generate icon data, default: random
@@ -31,7 +31,7 @@ Node
 
 ```javascript
 import { createCanvas } from 'canvas'; 
-import { renderIcon } from './blockies.mjs';
+import { renderIcon } from '@download/blockies';
 
 const canvas = createCanvas(50, 50);
 
