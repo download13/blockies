@@ -1,18 +1,48 @@
 <!doctype html>
 <head>
-<meta charset="utf-8">
-<style>
-canvas {
-	margin: 10px;
-}
-</style>
+  <style>
+  body {
+    background: #f1f1f1;
+  }
+
+  img, canvas {
+    display: inline-block;
+    margin: 10px;
+  }
+  </style>
 </head>
 <body>
-<script src="blockies.js"></script>
-<script>
-for(var i = 0; i < 250; i++) {
-	var icon = blockies.create();
-	document.body.appendChild(icon);
-}
-</script>
+  <script type="module">
+    import { createIcon } from './blockies.mjs';
+
+    const addresses = [
+      '0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359',
+      '0x554f8e6938004575bd89cbef417aea5c18140d92',
+      '0xcc6294200fa6e6eb5c3034ed6b0b80401f5b0ceb',
+      '0xbb9bc244d798123fde783fcc1c72d3bb8c189413',
+      '0x6090a6e47849629b7245dfa1ca21d94cd15878ef',
+      '0x314159265dd8dbb310642f98f50c066173c1259b'
+    ];
+
+    for(let i = 0; i < 128; i++) {
+      addresses.push(
+        Math.floor(Math.random() * Math.pow(10,10)).toString(16)
+        + Math.floor(Math.random() * Math.pow(10,10)).toString(16)
+        + Math.floor(Math.random() * Math.pow(10,10)).toString(16)
+        + Math.floor(Math.random() * Math.pow(10,10)).toString(16)
+      );
+    }
+
+    for(let i = 0; i < addresses.length; i++) {
+      const seed = addresses[i].toLowerCase();
+
+      const canvas = createIcon({
+        seed,
+        size: 10,
+        scale: 8
+      });
+
+      document.body.appendChild(canvas)
+    }
+  </script>
 </body>
