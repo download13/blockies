@@ -2,7 +2,8 @@
   "name": "@download/blockies",
   "version": "1.0.1",
   "description": "A tiny library for generating blocky identicons.",
-  "main": "src/blockies.mjs",
+  "main": "dist/blockies.min.js",
+  "module": "src/blockies.mjs",
   "scripts": {
     "build": "minify src/blockies.mjs -o dist/blockies.min.mjs",
     "serve-examples": "node --experimental-modules examples/server.mjs"
