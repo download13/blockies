@@ -2,9 +2,8 @@
 const randseed = new Array(4); // Xorshift: [x, y, z, w] 32 bit values
 
 function seedrand(seed) {
-	for(let i = 0; i < randseed.length; i++) {
-		randseed[i] = 0;
-	}
+	randseed.fill(0);
+
 	for(let i = 0; i < seed.length; i++) {
 		randseed[i%4] = ((randseed[i%4] << 5) - randseed[i%4]) + seed.charCodeAt(i);
 	}
