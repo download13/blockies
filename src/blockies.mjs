@@ -119,8 +119,8 @@ export function renderIconSVG(opts) {
 
 	const size = opts.size * opts.scale;
 
-	let svg = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">`;
-	svg += `<rect x="0" y="0" width="${size}" height="${size}" fill="${opts.bgcolor}"/>`
+	let svg = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + size + ' ' + size + '">';
+	svg += '<rect x="0" y="0" width="' + size + '" height="' + size + '" fill="' + opts.bgcolor + '"/>';
 
 	for (let i = 0; i < imageData.length; i++) {
 
@@ -132,7 +132,7 @@ export function renderIconSVG(opts) {
 			// if data is 2, choose spot color, if 1 choose foreground
 			const fill = (imageData[i] == 1) ? opts.color : opts.spotcolor;
 
-			svg += `<rect x="${col * opts.scale}" y="${row * opts.scale}" width="${opts.scale}" height="${opts.scale}" fill="${fill}"/>`
+			svg += '<rect x="' + col * opts.scale + '" y="' + row * opts.scale + '" width="' + opts.scale + '" height="' + opts.scale + '" fill="' + fill + '"/>';
 		}
 	}
 
